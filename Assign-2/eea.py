@@ -19,6 +19,7 @@ class EEA:
             for i in range(len(self.qs)-1):
                 current = self.mul(mat[index+1],self.qs[i]);
                 mat.append(self.sub(mat[index],current));
+                #print(self.qs);
                 index = index + 1;
             print(self.x,"\t---> ",mat[-1][0]);
             print(self.y,"\t---> ",mat[-1][1]);
