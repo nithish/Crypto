@@ -6,7 +6,7 @@ class hybrid:
         self.opt = sys.argv[1].lower();
         self.pfkey = sys.argv[2].upper();
         self.rwkey = sys.argv[3].upper();
-        self.text = sys.argv[4].upper();
+        self.text = sys.argv[4].upper().replace("J","I");
         self.check();
 
     def check(self):
@@ -24,6 +24,8 @@ class hybrid:
         if keyok:
             self.fill_matrix();
             self.transpose();
+        else:
+            print("Key format is wrong");
 
     def decrypt(self):
         keyok = self.check_rtkey();
@@ -104,7 +106,7 @@ class hybrid:
         flag = 1;
         if klen <= 9:
             for i in range(klen):
-                if int(self.rwkey[i]) > 9:
+                if int(self.rwkey[i]) > klen:
                     flag = 0;
                     break;
         else:
